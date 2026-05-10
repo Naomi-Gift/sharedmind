@@ -116,7 +116,7 @@ export default function PoolTab() {
                   <button onClick={() => depositAmt && setDeposited(true)}
                     className="btn btn-primary flex-shrink-0 text-[10px] py-2.5 px-4">DEPOSIT</button>
                 </div>
-                <p className="font-mono text-[9px] text-ash tracking-wider mt-2">FUNDS GO TO SMART CONTRACT // WITHDRAW ANYTIME</p>
+                <p className="font-mono text-[9px] text-ash tracking-wider mt-2">FUNDS HELD IN SMART CONTRACT // WITHDRAW ANYTIME</p>
               </>
             )}
           </div>

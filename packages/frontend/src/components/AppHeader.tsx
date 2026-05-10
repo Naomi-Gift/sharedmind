@@ -42,11 +42,11 @@ export default function AppHeader() {
             <div className="hidden sm:flex items-center gap-4 font-mono text-[9px] tracking-widest uppercase">
               <span className="flex items-center gap-1.5 text-stone">
                 <span className="live-dot" />
-                Kite Chain
+                Live
               </span>
               <span className="flex items-center gap-1.5 text-stone">
                 <span className="signal-dot" />
-                x402 Active
+                AI Active
               </span>
             </div>
 

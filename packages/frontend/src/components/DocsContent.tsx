@@ -143,7 +143,7 @@ export default function DocsContent() {
       <Table
         headers={['Layer', 'What happens']}
         rows={[
-          ['1. Pool',   "Members deposit USDC into GroupPool.sol on Kite chain. The contract tracks each member's balance and reputation score."],
+          ['1. Pool',   "Members deposit USDC into GroupPool.sol on-chain. The contract tracks each member's balance and reputation score."],
           ['2. Agent',  "The SharedMind agent receives prompts, routes to the cheapest capable AI model, signs an x402 micropayment, delivers the response, and debits the member's balance on-chain."],
           ['3. Market', "The group's attested prompt/response pairs form a knowledge corpus. External agents pay USDC per query. Revenue is split to members by reputation weight."],
         ]}
@@ -158,7 +158,7 @@ export default function DocsContent() {
 
       <H3>Via the contract</H3>
       <Pre lang="solidity">{`// Deploy GroupPool.sol with:
-// _usdc: USDC contract address on Kite chain
+// _usdc: USDC contract address on-chain
 // _agent: your backend wallet address
 GroupPool pool = new GroupPool(usdcAddress, agentAddress);
 

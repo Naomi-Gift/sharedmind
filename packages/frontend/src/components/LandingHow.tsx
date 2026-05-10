@@ -1,8 +1,8 @@
 const CARDS = [
   { num: '01', icon: '◈', title: 'Pool USDC',
-    desc: 'Your group deposits USDC into a shared smart contract on Kite L1. Balances are transparent, withdrawals always open. No one controls the funds — the contract does.' },
+    desc: 'Your group deposits USDC into a shared smart contract on-chain. Balances are transparent, withdrawals always open. No one controls the funds — the contract does.' },
   { num: '02', icon: '⬡', title: 'Agent Pays Per Request',
-    desc: 'The SharedMind agent (Kite Agent Passport) receives your prompt, routes to the cheapest capable AI model, signs an x402 micropayment, and delivers your response. Every step attested on-chain.' },
+    desc: 'The SharedMind agent (SharedMind agent) receives your prompt, routes to the cheapest capable AI model, signs a micropayment, and delivers your response. Every step attested on-chain.' },
   { num: '03', icon: '◎', title: 'Earn From Your Knowledge',
     desc: "Your group's attested research becomes a queryable x402 API. External agents pay USDC to access your expertise. Revenue splits back to members weighted by reputation score." },
 ];
@@ -18,7 +18,7 @@ export default function LandingHow() {
             Three steps.<br />One protocol.
           </h2>
           <p className="font-body text-[16px] text-stone leading-[1.7] max-w-[480px]">
-            No flat fees. No trust required. Every action settled on Kite chain with full auditability.
+            No flat fees. No trust required. Every action is settled on-chain with full auditability.
           </p>
         </div>
 

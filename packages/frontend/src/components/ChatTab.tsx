@@ -12,7 +12,7 @@ const MODEL_META: Record<string, { label: string; color: string; tagCls: string 
 
 const DEMO_RESPONSES: Pick<Message, 'content' | 'model' | 'tier' | 'cost' | 'attestation'>[] = [
   {
-    content: 'Top DeFi yield strategies on Kite chain: (1) USDC/KITE LP at 12–18% APY, (2) USDC lending pools at 8–11% APY with auto-compounding, (3) Validator staking at 6–9% APY with governance rights. The USDC/KITE LP offers the best risk-adjusted return for stablecoin holders.',
+    content: 'Top DeFi yield strategies: (1) USDC/KITE LP at 12–18% APY, (2) USDC lending pools at 8–11% APY with auto-compounding, (3) Validator staking at 6–9% APY with governance rights. The USDC/KITE LP offers the best risk-adjusted return for stablecoin holders.',
     model: 'claude-haiku-20240307', tier: 'simple', cost: 0.0004,
     attestation: { txHash: '0xabc123def456', requestHash: '0xhash789', blockNumber: 847291 },
   },
@@ -26,10 +26,10 @@ const DEMO_RESPONSES: Pick<Message, 'content' | 'model' | 'tier' | 'cost' | 'att
 let demoIdx = 0;
 
 const QUICK_PROMPTS = [
-  'Top DeFi yield strategies on Kite chain?',
+  'Top DeFi yield strategies right now?',
   'Explain x402 payment protocol simply',
   'Solidity smart contract security checklist',
-  'How does Kite Agent Passport work?',
+  'How does on-chain identity work?',
 ];
 
 interface Props { member: string }
@@ -151,7 +151,7 @@ export default function ChatTab({ member }: Props) {
                         <span className="font-mono text-[9px] text-ash tabular">${msg.cost?.toFixed(4)} USDC</span>
                         {msg.attestation && (
                           <a
-                            href={`https://explorer-testnet.gokite.ai/tx/${msg.attestation.txHash}`}
+                            href={`https://explorer.sharedmind.app/tx/${msg.attestation.txHash}`}
                             target="_blank" rel="noopener noreferrer"
                             className="flex items-center gap-1 font-mono text-[9px] text-phosphor hover:opacity-70 transition-opacity tracking-wider"
                           >

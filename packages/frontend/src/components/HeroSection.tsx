@@ -26,10 +26,10 @@ export default function HeroSection() {
         <div className="flex items-center gap-2 mb-8 flex-wrap">
           <span className="tag tag-phosphor">
             <span className="live-dot" style={{ width: 4, height: 4 }} />
-            Live on Kite Chain
+            Live
           </span>
-          <span className="tag tag-signal">x402 Protocol</span>
-          <span className="tag tag-neutral">USDC · Agent Passport</span>
+          <span className="tag tag-signal">AI Payments</span>
+          <span className="tag tag-neutral">USDC · On-Chain</span>
         </div>
 
         {/* Headline — display font, large */}
@@ -40,8 +40,8 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-stone text-[15px] max-w-[500px] leading-[1.7] mb-10 font-body">
-          Pool USDC on-chain. Your shared agent pays AI APIs via x402.
-          Every response is attested on Kite chain — and earns USDC
+          Pool USDC on-chain. Your shared agent pays AI APIs per request.
+          Every response is attested on-chain — and earns USDC
           when other agents query your collective knowledge.
         </p>
 

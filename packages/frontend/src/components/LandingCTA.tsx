@@ -29,7 +29,7 @@ export default function LandingCTA() {
             READY<br />TO <span className="glow-text">BUILD?</span>
           </h2>
           <p className="font-body text-[16px] text-stone max-w-[420px] mx-auto mb-11 leading-[1.7]">
-            Deploy your group pool, mint your Agent Passport, and ship the future of collective intelligence.
+            Deploy your group pool, invite your team, and start earning from your collective intelligence.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <button onClick={handleLaunch} className="btn btn-primary text-[11px] py-3 px-8">

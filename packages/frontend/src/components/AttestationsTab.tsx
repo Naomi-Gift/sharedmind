@@ -96,7 +96,7 @@ export default function AttestationsTab() {
       <div className="surface overflow-hidden scanlines">
         <div className="flex items-center justify-between px-5 py-3 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
           <span className="section-label">On-Chain Attestation Log</span>
-          <span className="font-mono text-[9px] text-ash tracking-widest">IMMUTABLE // ON-CHAIN</span>
+          <span className="font-mono text-[9px] text-ash tracking-widest">IMMUTABLE // VERIFIED</span>
         </div>
         <div className="max-h-[460px] overflow-y-auto">
           <AnimatePresence initial={false}>

@@ -1,8 +1,8 @@
 const CHIPS = [
-  { icon: '⬡', name: 'Kite Agent Passport',  desc: 'On-chain agent identity with session budget controls' },
-  { icon: '◈', name: 'x402 Protocol',         desc: 'HTTP-native micropayments — signed per request' },
+  { icon: '⬡', name: 'On-Chain Identity',  desc: 'On-chain agent identity with session budget controls' },
+  { icon: '◈', name: 'Micropayment Protocol',         desc: 'HTTP-native micropayments — signed per request' },
   { icon: '◎', name: 'USDC Settlement',        desc: 'Stablecoin-first — no price volatility on every prompt' },
-  { icon: '⬡', name: 'Kite L1 Attestations',  desc: 'Immutable proof of every request, cost, and payment' },
+  { icon: '⬡', name: 'On-Chain Attestations',  desc: 'Immutable proof of every request, cost, and payment' },
   { icon: '▸', name: 'Claude Haiku + Sonnet',  desc: 'Auto-routed by prompt complexity for minimum cost' },
   { icon: '▸', name: 'GPT-4o',                 desc: 'Complex tasks routed automatically when needed' },
   { icon: '◈', name: 'Group Pool Contract',    desc: 'Solidity — deposit, debit, revenue split, withdraw' },

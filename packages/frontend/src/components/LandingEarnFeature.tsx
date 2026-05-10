@@ -24,8 +24,8 @@ export default function LandingEarnFeature() {
               <span className="glow-text">AN ECONOMY.</span>
             </h2>
             <p className="font-body text-[16px] text-stone leading-[1.7] max-w-[520px] mb-8">
-              Every attested research session builds a shared knowledge corpus on Kite chain.
-              List it as an x402 API. Other agents — trading bots, research tools, competing groups
+              Every attested research session builds a shared knowledge corpus on-chain.
+              List it as a paid API. Other agents — trading bots, research tools, competing groups
               — pay USDC to query your expertise.
             </p>
 

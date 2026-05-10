@@ -159,7 +159,7 @@ export default function GroupInvite({ onGroupReady }: Props) {
           <motion.div key="creating" initial={{opacity:0}} animate={{opacity:1}} className="text-center py-12">
             <motion.div animate={{rotate:360}} transition={{repeat:Infinity,duration:1.2,ease:'linear'}} className="font-mono text-[36px] mx-auto mb-5 w-fit" style={{color:'var(--phosphor)',filter:'drop-shadow(0 0 12px rgba(0,232,122,0.5))'}}>⬡</motion.div>
             <p className="font-mono text-[11px] text-phosphor tracking-widest mb-2">CREATING YOUR GROUP</p>
-            <p className="font-body text-[13px] text-stone">Creating smart contract · minting agent passport…</p>
+            <p className="font-body text-[13px] text-stone">Creating smart contract · setting up your agent…</p>
           </motion.div>
         )}
 

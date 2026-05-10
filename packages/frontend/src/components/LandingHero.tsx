@@ -45,10 +45,10 @@ export default function LandingHero() {
         <div className="lp-hero-eyebrow flex items-center gap-2 mb-9 flex-wrap justify-center">
           <span className="tag tag-phosphor">
             <span className="live-dot" style={{ width: 5, height: 5 }} />
-            Live on Kite Chain
+            Live
           </span>
-          <span className="tag tag-signal">x402 Protocol</span>
-          <span className="tag tag-neutral">USDC · Agent Passport</span>
+          <span className="tag tag-signal">AI Payments</span>
+          <span className="tag tag-neutral">USDC · On-Chain</span>
         </div>
 
         <h1 className="lp-hero-title">
@@ -71,8 +71,8 @@ export default function LandingHero() {
         <div className="lp-hero-stats flex gap-3 mt-16 justify-center flex-wrap">
           {[
             { num: '$0.0009', label: 'per AI request' },
-            { num: 'x402',    label: 'payment protocol' },
-            { num: '⬡',       label: 'Kite Agent Passport' },
+            { num: 'x402',    label: 'per-request payments' },
+            { num: '⬡',       label: 'On-Chain Identity' },
             { num: 'USDC',    label: 'stablecoin settled' },
           ].map(s => (
             <div key={s.num} className="surface-raised flex items-center gap-3 px-4 py-2.5">

@@ -30,13 +30,13 @@ export default function AppPage() {
                 </span>
               </div>
               <div className="flex items-center gap-4 font-mono text-[9px] text-ash tracking-widest">
-                <span>KITE AGENT PASSPORT</span>
+                <span>SHARED INTELLIGENCE</span>
                 <span style={{ color: 'rgba(255,255,255,0.1)' }}>·</span>
-                <span>X402 PROTOCOL</span>
+                <span>AI PAYMENTS</span>
                 <span style={{ color: 'rgba(255,255,255,0.1)' }}>·</span>
                 <span>USDC</span>
                 <span style={{ color: 'rgba(255,255,255,0.1)' }}>·</span>
-                <span>KITE CHAIN</span>
+                <span>ON-CHAIN</span>
               </div>
             </div>
           </footer>

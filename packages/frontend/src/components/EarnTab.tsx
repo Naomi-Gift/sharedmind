@@ -18,7 +18,7 @@ const SEED: IncomingQuery[] = [
 ];
 
 const LIVE_Q = [
-  { payer: '0xAgent…ext1', query: 'Kite chain liquidity analysis' },
+  { payer: '0xAgent…ext1', query: 'DeFi liquidity analysis' },
   { payer: '0xAgent…ext2', query: 'Legal framework for DAOs'      },
   { payer: '0xAgent…ext3', query: 'Drug repurposing research'     },
 ];
@@ -89,7 +89,7 @@ export default function EarnTab() {
             <div className="flex items-center gap-2 flex-wrap">
               <span className="tag tag-gold">0.12 USDC / QUERY</span>
               <span className="tag tag-phosphor">x402</span>
-              <span className="tag tag-signal">KITE CHAIN</span>
+              <span className="tag tag-signal">ON-CHAIN</span>
             </div>
           </div>
         </div>
