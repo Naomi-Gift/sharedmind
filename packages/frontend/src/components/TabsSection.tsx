@@ -28,7 +28,6 @@ const GROUP_VIEWS: { id: GroupView; label: string }[] = [
   { id: 'invite', label: 'Invite / Join' },
 ];
 
-const GROUP_ID = 'defi-alpha';
 
 export default function TabsSection() {
   const { address } = useWalletCtx();
@@ -132,7 +131,7 @@ export default function TabsSection() {
                   )}
                   {groupView === 'invite' && (
                     <motion.div key="ginvite" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <GroupInvite groupId={GROUP_ID} onJoined={() => setGroupView('chat')} />
+                      <GroupInvite onGroupReady={() => setGroupView('chat')} />
                     </motion.div>
                   )}
                 </AnimatePresence>
