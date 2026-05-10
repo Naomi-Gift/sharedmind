@@ -17,7 +17,7 @@ export default function LandingHero() {
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         .lp-hero-title {
           font-family: 'Syne', sans-serif; font-weight: 800;
           font-size: clamp(64px, 11vw, 140px);
