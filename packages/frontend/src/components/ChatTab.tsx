@@ -36,7 +36,7 @@ interface Props { member: string }
 
 export default function ChatTab({ member }: Props) {
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'system', content: 'SHAREDMIND AGENT ONLINE // GROUP POOL ACTIVE // ALL RESPONSES ATTESTED ON-CHAIN' },
+    { role: 'system', content: 'SharedMind agent online. Ask anything — every response is attested on-chain and builds your group\'s knowledge corpus.' },
   ]);
   const [input, setInput]     = useState('');
   const [loading, setLoading] = useState(false);

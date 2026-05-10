@@ -253,3 +253,17 @@ html:not(.lp-cursor-active) body,
 html:not(.lp-cursor-active) * {
   cursor: unset;
 }
+
+/* ─── Keyframes ──────────────────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; box-shadow: 0 0 4px var(--phosphor); }
+  50%       { opacity: 1;   box-shadow: 0 0 10px var(--phosphor); }
+}
+
+@keyframes scan {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ─── Mobile tab scroll ──────────────────────────────────── */
+.tab-scroll::-webkit-scrollbar { display: none; }

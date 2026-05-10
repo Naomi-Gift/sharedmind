@@ -1,7 +1,7 @@
 import GridBackground from '@/components/GridBackground';
 import ParticleField from '@/components/ParticleField';
 import AppHeader from '@/components/AppHeader';
-import HeroSection from '@/components/HeroSection';
+import DashboardBanner from '@/components/DashboardBanner';
 import TabsSection from '@/components/TabsSection';
 import AppGate from '@/components/AppGate';
 
@@ -14,10 +14,10 @@ export default function AppPage() {
 
         <div className="relative z-10">
           <AppHeader />
-          <HeroSection />
+          <DashboardBanner />
           <TabsSection />
 
-          <footer className="border-t" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+          <footer className="border-t mt-8" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
             <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between flex-wrap gap-4">
               <div className="flex items-center gap-2.5">
                 <svg width="16" height="16" viewBox="0 0 22 22" fill="none">
