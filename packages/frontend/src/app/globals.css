@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..400&display=swap');
+
+/* ─── Reset ──────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #080c0a;
+    color: #e8ede9;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+    /* Subtle scanline texture */
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 4px
+    );
+  }
+
+  ::-webkit-scrollbar       { width: 2px; height: 2px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #00e87a30; border-radius: 99px; }
+}
+
+/* ─── Design Tokens ──────────────────────────────────────── */
+:root {
+  --phosphor: #00e87a;
+  --gold:     #f0b429;
+  --signal:   #3b9eff;
+  --ember:    #ff6b4a;
+  --chalk:    #e8ede9;
+  --stone:    #7a8c80;
+  --ash:      #3d4d42;
+  --void:     #080c0a;
+  --ink:      #0d1210;
+  --carbon:   #131a16;
+  --slate:    #1c2620;
+  --wire:     rgba(255,255,255,0.04);
+  --wire-md:  rgba(255,255,255,0.08);
+  --wire-hi:  rgba(255,255,255,0.13);
+}
+
+/* ─── Components ─────────────────────────────────────────── */
+@layer components {
+
+  /* Surfaces */
+  .surface {
+    background: var(--ink);
+    border: 1px solid var(--wire);
+    border-radius: 4px;
+    position: relative;
+  }
+  .surface-raised {
+    background: var(--carbon);
+    border: 1px solid var(--wire-md);
+    border-radius: 4px;
+  }
+  .surface-inset {
+    background: var(--void);
+    border: 1px solid var(--wire);
+    border-radius: 3px;
+  }
+
+  /* Corner accent — top-left bracket */
+  .bracketed {
+    position: relative;
+  }
+  .bracketed::before,
+  .bracketed::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: var(--phosphor);
+    border-style: solid;
+    opacity: 0.5;
+  }
+  .bracketed::before {
+    top: -1px; left: -1px;
+    border-width: 1px 0 0 1px;
+  }
+  .bracketed::after {
+    bottom: -1px; right: -1px;
+    border-width: 0 1px 1px 0;
+  }
+
+  /* Tags */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tag-phosphor { background: rgba(0,232,122,0.08);  color: var(--phosphor); border: 1px solid rgba(0,232,122,0.25); }
+  .tag-gold     { background: rgba(240,180,41,0.08); color: var(--gold);     border: 1px solid rgba(240,180,41,0.25); }
+  .tag-signal   { background: rgba(59,158,255,0.08); color: var(--signal);   border: 1px solid rgba(59,158,255,0.25); }
+  .tag-ember    { background: rgba(255,107,74,0.08); color: var(--ember);    border: 1px solid rgba(255,107,74,0.25); }
+  .tag-neutral  { background: rgba(255,255,255,0.04);color: var(--stone);    border: 1px solid rgba(255,255,255,0.1); }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: all 0.15s;
+    border-radius: 2px;
+  }
+  .btn-primary {
+    padding: 9px 20px;
+    background: var(--phosphor);
+    color: var(--void);
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(0,232,122,0.2);
+  }
+  .btn-primary:hover   { background: #1ffb8a; box-shadow: 0 0 28px rgba(0,232,122,0.35); }
+  .btn-primary:active  { transform: scale(0.98); }
+  .btn-primary:disabled{ opacity: 0.3; cursor: not-allowed; box-shadow: none; }
+
+  .btn-outline {
+    padding: 7px 16px;
+    background: transparent;
+    color: var(--stone);
+    border: 1px solid var(--wire-md);
+  }
+  .btn-outline:hover { color: var(--chalk); border-color: var(--wire-hi); background: rgba(255,255,255,0.03); }
+
+  /* Input */
+  .field {
+    width: 100%;
+    background: var(--void);
+    border: 1px solid var(--wire-md);
+    border-radius: 3px;
+    padding: 10px 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--chalk);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .field::placeholder { color: var(--ash); }
+  .field:focus {
+    border-color: rgba(0,232,122,0.4);
+    box-shadow: 0 0 0 3px rgba(0,232,122,0.08);
+  }
+
+  /* Section label */
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+
+  /* Divider */
+  .rule { border-top: 1px solid var(--wire); }
+
+  /* Live dot */
+  .live-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--phosphor);
+    box-shadow: 0 0 6px var(--phosphor);
+    animation: pulse-glow 2.5s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  .signal-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--signal);
+    flex-shrink: 0;
+  }
+}
+
+/* ─── Utilities ──────────────────────────────────────────── */
+@layer utilities {
+  .font-display { font-family: 'Syne', system-ui, sans-serif; }
+  .font-mono    { font-family: 'Space Mono', monospace; }
+  .font-body    { font-family: 'DM Sans', system-ui, sans-serif; }
+
+  .text-phosphor { color: var(--phosphor); }
+  .text-gold     { color: var(--gold); }
+  .text-signal   { color: var(--signal); }
+  .text-ember    { color: var(--ember); }
+  .text-chalk    { color: var(--chalk); }
+  .text-stone    { color: var(--stone); }
+  .text-ash      { color: var(--ash); }
+
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  /* Phosphor glow text */
+  .glow-text {
+    color: var(--phosphor);
+    text-shadow: 0 0 20px rgba(0,232,122,0.5), 0 0 40px rgba(0,232,122,0.2);
+  }
+
+  /* Scanline overlay on a container */
+  .scanlines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0,0,0,0.06) 3px,
+      rgba(0,0,0,0.06) 4px
+    );
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* Animated scan line */
+  .scan-line::before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,232,122,0.3), transparent);
+    animation: scan 6s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+/* ─── Cursor safety ──────────────────────────────────────── */
+/* Ensure the app always shows a cursor unless landing page explicitly hides it */
+html:not(.lp-cursor-active),
+html:not(.lp-cursor-active) body,
+html:not(.lp-cursor-active) * {
+  cursor: unset;
+}

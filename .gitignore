@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+packages/*/node_modules/
+
+# Build outputs
+packages/frontend/.next/
+packages/frontend/out/
+packages/backend/dist/
+packages/contracts/out/
+packages/contracts/cache/
+packages/contracts/artifacts/
+packages/contracts/lib/
+
+# Environment files — NEVER commit these
+.env
+.env.local
+.env.production
+packages/contracts/.env
+packages/backend/.env
+packages/frontend/.env.local
+packages/frontend/.env.production
+
+# Forge broadcast (contains tx hashes, not secrets, but keep clean)
+packages/contracts/broadcast/*/31337/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+*.swp
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules

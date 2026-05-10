@@ -1,0 +1,10 @@
+{
+  "name": "sharedmind",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "npm run dev --workspace=packages/frontend",
+    "dev:backend":  "npm run dev --workspace=packages/backend",
+    "build":        "npm run build --workspace=packages/frontend"
+  }
+}
