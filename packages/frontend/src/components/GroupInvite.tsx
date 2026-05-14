@@ -11,9 +11,9 @@ interface Props {
 type View = 'landing' | 'create' | 'creating' | 'create-done' | 'join' | 'join-pending' | 'browse';
 
 const OPEN_GROUPS = [
-  { id: 'defi-alpha', name: 'DeFi Alpha',       members: 3, pool: '$47.82', streak: 14, focus: 'DeFi / Yield',       description: 'DeFi researchers & quant traders pooling AI for yield strategies' },
-  { id: 'legal-dao',  name: 'Legal DAO',         members: 2, pool: '$22.10', streak: 7,  focus: 'Legal / Web3',       description: 'Crypto lawyers building shared legal knowledge corpus' },
-  { id: 'med-ai',     name: 'MedAI Collective',  members: 4, pool: '$61.40', streak: 21, focus: 'Medicine / Research', description: 'Medical researchers using AI to accelerate drug discovery' },
+  { id: 'defi-alpha', name: 'DeFi Alpha',       members: 3, pool: '$47.82', streak: 14, focus: 'DeFi / Yield',       description: 'DeFi researchers pooling AI for yield strategies' },
+  { id: 'legal-dao',  name: 'Legal DAO',         members: 2, pool: '$22.10', streak: 7,  focus: 'Legal / Web3',       description: 'Crypto lawyers building shared legal knowledge' },
+  { id: 'med-ai',     name: 'MedAI Collective',  members: 4, pool: '$61.40', streak: 21, focus: 'Medicine / Research', description: 'Medical researchers accelerating drug discovery with AI' },
 ];
 
 const FOCUS_OPTIONS = ['DeFi / Yield','Legal / Web3','Medicine / Research','Trading / Quant','Engineering','Science','Education','Other'];
@@ -24,17 +24,16 @@ function generateCode(name: string) {
 
 export default function GroupInvite({ onGroupReady }: Props) {
   const { address } = useWalletCtx();
-  const [view, setView]       = useState<View>('landing');
-  const [groupName, setGroupName] = useState('');
-  const [focus, setFocus]     = useState('');
-  const [description, setDesc] = useState('');
-  const [deposit, setDeposit] = useState('');
-  const [isPublic, setIsPublic] = useState(true);
-  const [createdGroup, setCreated] = useState<{id:string;name:string;code:string;link:string}|null>(null);
-  const [copied, setCopied]   = useState(false);
-  const [yourName, setYourName] = useState('');
+  const [view, setView]             = useState<View>('landing');
+  const [groupName, setGroupName]   = useState('');
+  const [focus, setFocus]           = useState('');
+  const [description, setDesc]      = useState('');
+  const [deposit, setDeposit]       = useState('');
+  const [isPublic, setIsPublic]     = useState(true);
+  const [createdGroup, setCreated]  = useState<{id:string;name:string;code:string;link:string}|null>(null);
+  const [copied, setCopied]         = useState(false);
+  const [yourName, setYourName]     = useState('');
   const [inviteCode, setInviteCode] = useState('');
-  const [joinSent, setJoinSent] = useState(false);
 
   const handleCreate = async () => {
     if (!groupName.trim()) return;
@@ -48,7 +47,6 @@ export default function GroupInvite({ onGroupReady }: Props) {
 
   const handleJoin = async () => {
     if (!yourName.trim() || !inviteCode.trim()) return;
-    setJoinSent(true);
     setView('join-pending');
     await new Promise(r => setTimeout(r, 1800));
     onGroupReady(inviteCode.toLowerCase(), yourName);
@@ -68,8 +66,9 @@ export default function GroupInvite({ onGroupReady }: Props) {
         {view === 'landing' && (
           <motion.div key="landing" initial={{opacity:0,y:6}} animate={{opacity:1,y:0}} exit={{opacity:0}}>
             <p className="section-label mb-1">Groups</p>
-            <p className="font-body text-[13px] text-stone mb-6">Create a new group or join an existing one. Groups pool USDC, share AI access, and build collective knowledge on-chain.</p>
-
+            <p className="font-body text-[13px] text-stone mb-6">
+              Create a new group or join an existing one. Groups pool USDC, share AI access, and build collective knowledge on-chain.
+            </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
               <button onClick={() => setView('create')} className="surface-raised p-5 text-left transition-all hover:border-[rgba(0,232,122,0.3)] group" style={{borderRadius:4}}>
                 <div className="font-mono text-[22px] mb-3 group-hover:scale-110 transition-transform inline-block" style={{color:'var(--phosphor)'}}>◈</div>
@@ -87,7 +86,6 @@ export default function GroupInvite({ onGroupReady }: Props) {
                 <div className="font-mono text-[9px] text-ash tracking-wider leading-relaxed">Discover public groups and request to join</div>
               </button>
             </div>
-
             <div className="surface-inset px-4 py-3 flex items-center gap-6 flex-wrap">
               <div className="font-mono text-[9px] text-ash tracking-widest">NETWORK STATS</div>
               {[{label:'Active Groups',value:'12'},{label:'Total Pool',value:'$847'},{label:'Queries Sold',value:'1,204'}].map(s => (
@@ -106,7 +104,6 @@ export default function GroupInvite({ onGroupReady }: Props) {
             <button onClick={() => setView('landing')} className="font-mono text-[9px] text-ash tracking-widest mb-5 hover:text-stone transition-colors flex items-center gap-1">← BACK</button>
             <p className="section-label mb-1">Create a Group</p>
             <p className="font-body text-[13px] text-stone mb-5">Your group gets a shared smart contract, a dedicated AI agent, and a private group chat.</p>
-
             <div className="space-y-4 mb-5">
               <div>
                 <p className="font-mono text-[9px] text-ash tracking-widest mb-2">GROUP NAME *</p>
@@ -148,7 +145,6 @@ export default function GroupInvite({ onGroupReady }: Props) {
                 </div>
               </div>
             </div>
-
             <button onClick={handleCreate} disabled={!groupName.trim()} className="btn btn-primary w-full py-3 text-[11px]">CREATE GROUP</button>
             <p className="font-mono text-[9px] text-ash tracking-wider mt-2 text-center">Creates a shared smart contract · deploys your group AI agent · all activity attested on-chain</p>
           </motion.div>

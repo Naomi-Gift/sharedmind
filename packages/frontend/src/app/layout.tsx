@@ -5,6 +5,18 @@ import { WalletProvider } from '@/context/WalletContext';
 export const metadata: Metadata = {
   title: 'SharedMind — Group Intelligence Protocol',
   description: 'Pool AI usage on-chain. Build collective intelligence. Sell it to the world.',
+  openGraph: {
+    title: 'SharedMind — Group Intelligence Protocol',
+    description: 'Pool USDC. Build shared AI knowledge on-chain. Earn when others query your expertise.',
+    type: 'website',
+    siteName: 'SharedMind',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SharedMind',
+    description: 'Pool USDC. Build shared AI knowledge on-chain. Earn when others query your expertise.',
+  },
+  keywords: ['AI', 'DeFi', 'on-chain', 'group intelligence', 'USDC', 'micropayments'],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
