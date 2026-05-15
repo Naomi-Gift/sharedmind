@@ -5,20 +5,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Message, Attestation } from '@/types';
 
 const MODEL_META: Record<string, { label: string; color: string; tagCls: string }> = {
-  'claude-haiku-20240307': { label: 'HAIKU',  color: 'text-signal',   tagCls: 'tag-signal'   },
-  'claude-sonnet-4-5':     { label: 'SONNET', color: 'text-phosphor', tagCls: 'tag-phosphor' },
-  'gpt-4o':                { label: 'GPT-4O', color: 'text-gold',     tagCls: 'tag-gold'     },
+  'claude-haiku-20240307':      { label: 'HAIKU',   color: 'text-signal',   tagCls: 'tag-signal'   },
+  'claude-sonnet-4-5':          { label: 'SONNET',  color: 'text-phosphor', tagCls: 'tag-phosphor' },
+  'gpt-4o':                     { label: 'GPT-4O',  color: 'text-gold',     tagCls: 'tag-gold'     },
+  'llama-3.3-70b-versatile':    { label: 'LLAMA',   color: 'text-phosphor', tagCls: 'tag-phosphor' },
+  'llama3-70b-8192':            { label: 'LLAMA',   color: 'text-phosphor', tagCls: 'tag-phosphor' },
+  'mixtral-8x7b-32768':         { label: 'MIXTRAL', color: 'text-signal',   tagCls: 'tag-signal'   },
 };
 
 const DEMO_RESPONSES: Pick<Message, 'content' | 'model' | 'tier' | 'cost' | 'attestation'>[] = [
   {
     content: 'Top DeFi yield strategies: (1) USDC/KITE LP at 12–18% APY, (2) USDC lending pools at 8–11% APY with auto-compounding, (3) Validator staking at 6–9% APY with governance rights. The USDC/KITE LP offers the best risk-adjusted return for stablecoin holders.',
-    model: 'claude-haiku-20240307', tier: 'simple', cost: 0.0004,
+    model: 'llama-3.3-70b-versatile', tier: 'simple', cost: 0.0004,
     attestation: { txHash: '0xabc123def456', requestHash: '0xhash789', blockNumber: 847291 },
   },
   {
     content: 'Smart contract security best practices: use ReentrancyGuard for all external calls, follow checks-effects-interactions pattern, leverage OpenZeppelin battle-tested contracts, run Slither and Mythril static analysis before deployment, and get a professional audit before mainnet.',
-    model: 'claude-sonnet-4-5', tier: 'medium', cost: 0.0031,
+    model: 'llama-3.3-70b-versatile', tier: 'medium', cost: 0.0031,
     attestation: { txHash: '0xdef789abc012', requestHash: '0xhash456', blockNumber: 847302 },
   },
 ];
@@ -180,7 +183,7 @@ export default function ChatTab({ member }: Props) {
                   />
                 ))}
               </div>
-              <span className="font-mono text-[9px] text-ash tracking-widest">ROUTING VIA X402…</span>
+              <span className="font-mono text-[9px] text-ash tracking-widest">ROUTING QUERY…</span>
             </motion.div>
           )}
           <div ref={bottomRef} />
@@ -229,9 +232,7 @@ export default function ChatTab({ member }: Props) {
           <p className="section-label mb-3">Cost router</p>
           <div className="space-y-3">
             {[
-              { model: 'Haiku',  cost: '0.0009', use: 'Simple Q&A', pct: 70,  color: 'var(--signal)'   },
-              { model: 'Sonnet', cost: '0.008',  use: 'Research',   pct: 25,  color: 'var(--phosphor)' },
-              { model: 'GPT-4o', cost: '0.030',  use: 'Complex',    pct: 5,   color: 'var(--gold)'     },
+              { model: 'Llama 70B', cost: '0.0005', use: 'All queries', pct: 100, color: 'var(--phosphor)' },
             ].map(r => (
               <div key={r.model}>
                 <div className="flex justify-between mb-1">

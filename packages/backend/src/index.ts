@@ -14,14 +14,21 @@ const PORT = process.env.PORT ?? 3001;
 
 // ─── Middleware ───────────────────────────────────────────────────────
 
-const allowedOrigins = process.env.FRONTEND_URL
-  ? [process.env.FRONTEND_URL]
-  : ['http://localhost:3000', 'http://localhost:3001'];
+const allowedOrigins = (process.env.FRONTEND_URL ?? '')
+  .split(',')
+  .map(s => s.trim())
+  .filter(Boolean);
+
+// Always allow localhost in dev
+const devOrigins = ['http://localhost:3000', 'http://localhost:3001'];
 
 app.use(cors({
   origin: (origin, cb) => {
-    // Allow requests with no origin (curl, Postman, server-to-server)
-    if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+    if (!origin) return cb(null, true); // curl / Postman / server-to-server
+    if (devOrigins.includes(origin)) return cb(null, true);
+    if (allowedOrigins.includes(origin)) return cb(null, true);
+    // Allow any *.vercel.app subdomain
+    if (/^https:\/\/[a-z0-9-]+\.vercel\.app$/.test(origin)) return cb(null, true);
     cb(new Error(`CORS: origin ${origin} not allowed`));
   },
   credentials: true,
@@ -54,7 +61,7 @@ app.get('/health', (_req, res) => {
     status:  'ok',
     version: '1.0.0',
     chain:   process.env.KITE_RPC_URL ? 'configured' : 'demo',
-    ai:      process.env.ANTHROPIC_API_KEY ? 'configured' : 'demo',
+    ai:      process.env.GROQ_API_KEY ? 'configured' : 'demo',
   });
 });
 
@@ -76,5 +83,5 @@ app.use((err: Error, _req: express.Request, res: express.Response, _next: expres
 app.listen(PORT, () => {
   console.log(`SharedMind backend :${PORT}`);
   console.log(`  Chain: ${process.env.KITE_RPC_URL ?? 'demo mode'}`);
-  console.log(`  AI:    ${process.env.ANTHROPIC_API_KEY ? 'Anthropic configured' : 'demo mode'}`);
+  console.log(`  AI:    ${process.env.GROQ_API_KEY ? 'Groq configured' : 'demo mode'}`);
 });

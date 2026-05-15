@@ -6,6 +6,7 @@ import { useWallet, WalletState } from '@/hooks/useWallet';
 interface WalletCtx extends WalletState {
   connect: () => Promise<string | null>;
   disconnect: () => void;
+  switchNetwork: () => Promise<void>;
 }
 
 const Ctx = createContext<WalletCtx | null>(null);
@@ -17,6 +18,15 @@ export function WalletProvider({ children }: { children: ReactNode }) {
 
 export function useWalletCtx() {
   const ctx = useContext(Ctx);
-  if (!ctx) throw new Error('useWalletCtx must be inside WalletProvider');
+  if (!ctx) {
+    // Return a safe no-op object instead of throwing — prevents crashes
+    return {
+      address: null, chainId: null, connected: false,
+      connecting: false, error: null, wrongNetwork: false,
+      connect: async () => null,
+      disconnect: () => {},
+      switchNetwork: async () => {},
+    };
+  }
   return ctx;
 }
